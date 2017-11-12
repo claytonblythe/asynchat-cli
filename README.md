@@ -4,5 +4,9 @@ asynchat-cli is an asyncrhonous command line chatroom, using asyncio in python. 
 
 I still plan on adding more things and customizing it a bit, so consider this the alpha version as of 11/11/17.
 
+You should be able to connect to the chatroom with 
+
+```telnet deepython.com:1234```
+
 Email: claytondblythe@gmail.com
 
