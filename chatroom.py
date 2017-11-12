@@ -46,8 +46,8 @@ class ChatRoom:
             transport.write(TELET_EOL.encode('utf-8'))
 
 def main(argv):
-    name = argv[1] if len(argv) >= 2 else "Chatterbox"
-    port = int(argv[2]) if len(argv) >= 3 else 1234
+    name = argv[1] if len(argv) >= 2 else "deepython.com Chat"
+    port = int(argv[2]) if len(argv) >= 3 else 2052
     loop = asyncio.get_event_loop()
     chat_room = ChatRoom(name, port, loop)
     server = chat_room.run()

@@ -13,7 +13,7 @@ class Protocol(asyncio.Protocol):
 
     def connection_made(self, transport):
         self._transport = transport
-        self._writeline("Welcome to {}".format(self._chat_room.name))
+        self._writeline("\nWelcome to {}".format(self._chat_room.name))
         self._write("Enter username: ")
 
     def data_received(self, raw_data):
@@ -48,6 +48,7 @@ class Protocol(asyncio.Protocol):
 
     def _register_user(self, line):
         username = line.strip()
+        self._writeline("\n------------------------------------")
         if self._chat_room.register_user(username, self._transport):
             self._username = username
         else:
