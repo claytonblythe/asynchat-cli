@@ -53,6 +53,7 @@ class Protocol(asyncio.Protocol):
             self._username = username
         else:
             self._writeline("Username {} not available".format(username))
+        self._list_users()
 
     def _deregister_user(self):
         if self._username is not None:
@@ -60,9 +61,9 @@ class Protocol(asyncio.Protocol):
 
     def _list_users(self):
         self._writeline("Users here: ")
-        for username in self._chat_room.users():
-            self._write("  ")
-            self._writeline(username)
+        self._write(', '.join(self._chat_room.users()))
+        self._writeline("")
+
     def _writeline(self, line):
         self._write(line)
         self._write(TELET_EOL)
